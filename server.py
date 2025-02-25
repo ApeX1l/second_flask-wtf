@@ -13,5 +13,10 @@ def index(title):
     return render_template('base.html', title=title)
 
 
+@app.route('/training/<prof>')
+def training(prof):
+    return render_template('training.html', work=prof)
+
+
 if __name__ == '__main__':
     app.run()

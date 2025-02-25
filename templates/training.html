@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if 'строитель' in work or 'инженер' in work%}
+    <h2>Инженерные тренажеры</h2>
+        <img src="/static/img/engineer.jpg" alt="здесь должна была быть картинка, но не нашлась">
+{% else %}
+    <h2>Научные симуляторы</h2>
+        <img src="/static/img/medic.jpg" alt="здесь должна была быть картинка, но не нашлась">
+{% endif %}
+{% endblock %}

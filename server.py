@@ -55,6 +55,10 @@ def login():
 def success(username):
     return render_template('success.html', username=username)
 
+@app.route('/distribution')
+def distribution():
+    sp = ['Олег', 'Андрей', 'Ридли Скотт']
+    return render_template('distribution.html', list=sp)
 
 if __name__ == '__main__':
     app.run()

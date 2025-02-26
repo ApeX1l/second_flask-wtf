@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Server{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="/static/css/table.css">
+{% endblock %}
+{% block content %}
+<h2>Оформление каюты</h2>
+<table>
+<thead>
+<tr>
+    <th>Цвет стен</th>
+    <th>Эмблема</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  {% if sex == 'female' and age >= 21%}
+    <td><img src="/static/img/orange.jpg" alt="здесь должна была быть картинка, но не нашлась"></td>
+    <td><img src="/static/img/adult-alien.jpg" alt="здесь должна была быть картинка, но не нашлась"></td>
+  {% elif sex == 'female' and age < 21%}
+    <td><img src="/static/img/light-orange.jpg" alt="здесь должна была быть картинка, но не нашлась"></td>
+    <td><img src="/static/img/child-alien.jpg" alt="здесь должна была быть картинка, но не нашлась"></td>
+  {% elif sex == 'male' and age >= 21%}
+    <td><img src="/static/img/blue.jpg" alt="здесь должна была быть картинка, но не нашлась"></td>
+    <td><img src="/static/img/adult-alien.jpg" alt="здесь должна была быть картинка, но не нашлась"></td>
+  {% elif sex == 'male' and age < 21%}
+    <td><img src="/static/img/light-blue.jpg" alt="здесь должна была быть картинка, но не нашлась"></td>
+    <td><img src="/static/img/child-alien.jpg" alt="здесь должна была быть картинка, но не нашлась"></td>
+  {% endif %}
+</tr>
+</tbody>
+</table>
+{% endblock %}

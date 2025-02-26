@@ -55,10 +55,17 @@ def login():
 def success(username):
     return render_template('success.html', username=username)
 
+
 @app.route('/distribution')
 def distribution():
     sp = ['Олег', 'Андрей', 'Ридли Скотт']
     return render_template('distribution.html', list=sp)
+
+
+@app.route('/table/<sex>/<int:age>')
+def table(sex, age):
+    return render_template('table.html', sex=sex, age=age)
+
 
 if __name__ == '__main__':
     app.run()

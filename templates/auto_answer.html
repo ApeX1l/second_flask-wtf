@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{dictt['title']}}{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="/static/css/h4.css">
+{% endblock %}
+{% block left %}
+<div id="custom-section">
+    <h4>
+        Фамилия: {{dictt['surname']}}
+    </h4>
+    <h4>
+        Имя: {{dictt['name']}}
+    </h4>
+    <h4>
+        Образование: {{dictt['education']}}
+    </h4>
+    <h4>
+        Профессия: {{dictt['profession']}}
+    </h4>
+    <h4>
+        Пол: {{dictt['sex']}}
+    </h4>
+    <h4>
+        Мотивация: {{dictt['motivation']}}
+    </h4>
+    <h4>
+        Готовность остаться на Марсе: {{dictt['ready']}}
+    </h4>
+</div>
+{% endblock %}

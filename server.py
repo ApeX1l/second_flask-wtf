@@ -26,5 +26,21 @@ def list_prof(list):
     return render_template('list_prof.html', type=list, sp=sp)
 
 
+@app.route('/answer')
+@app.route('/auto_answer')
+def auto_answer():
+    dictt = {
+        'title': 'Anketa',
+        'surname': 'Ivanov',
+        'name': 'Oleg',
+        'education': 'Vishee',
+        'profession': 'Builder',
+        'sex': 'Male',
+        'motivation': 'Rabota',
+        'ready': 'True'
+    }
+    return render_template('auto_answer.html', dictt=dictt)
+
+
 if __name__ == '__main__':
     app.run()

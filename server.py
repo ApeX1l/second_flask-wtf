@@ -42,5 +42,19 @@ def auto_answer():
     return render_template('auto_answer.html', dictt=dictt)
 
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        f = form.username_astronaut.data
+        return redirect(f'/success/{f}')
+    return render_template('login.html', title='Авторизация', form=form)
+
+
+@app.route(f'/success/<username>')
+def success(username):
+    return render_template('success.html', username=username)
+
+
 if __name__ == '__main__':
     app.run()

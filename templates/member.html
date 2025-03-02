@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Server{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="/static/css/size_image_login_form.css">
+{% endblock %}
+{% block content %}
+{% set person = peoples['peoples'][index] %}
+<div style="text-align: center;">
+    <h2>{{person['name']}} {{person['surname']}}</h2>
+    <img src="{{url_for('static', filename=person['content'])}}"
+                             alt="здесь должна была быть картинка, но не нашлась">
+    <div>{{person['profession']}}</div>
+</div>
+{% endblock %}

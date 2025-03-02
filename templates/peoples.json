@@ -1,0 +1,22 @@
+{
+    "peoples": [
+        {
+            "name": "Олег",
+            "surname": "Иванов",
+            "content": "img/oleg_ivanov.png",
+            "profession": "инженер-исследователь, пилот"
+        },
+        {
+            "name": "Андрей",
+            "surname": "Кораблев",
+            "content": "img/andrey_korablev.jpg",
+            "profession": "пилот дронов, астрогеолог"
+        },
+        {
+           "name": "Михаил",
+            "surname": "Сипигин",
+            "content": "img/mihail_sipigin.jpg",
+            "profession": "киберинженер, штурман"
+        }
+    ]
+}

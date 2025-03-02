@@ -1,4 +1,5 @@
 import json
+import random
 
 from flask import Flask, render_template, redirect, request
 from login import LoginForm
@@ -9,6 +10,7 @@ sp = ['инженер-исследователь', 'пилот', 'строите
       'специалист по радиационной защите', 'астрогеолог', 'гляциолог', 'инженер жизнеобеспечения', 'метеоролог',
       'оператор марсохода', 'киберинженер', 'штурман', 'пилот дронов']
 count = 0
+
 
 @app.route('/<title>')
 @app.route('/index/<title>')
@@ -83,6 +85,15 @@ def galery():
         with open('pictures_for_carousel', 'a') as file:
             file.write(f'\nphoto{count}.jpg')
         return redirect('/galery')
+
+
+@app.route('/member')
+def member():
+    with open("templates/peoples.json", "rt", encoding="utf8") as f:
+        peoples_list = json.loads(f.read())
+    ind = random.randrange(3)
+    return render_template('member.html', peoples=peoples_list, index=ind)
+
 
 if __name__ == '__main__':
     app.run()

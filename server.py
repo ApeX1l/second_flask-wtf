@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 from login import LoginForm
 
 app = Flask(__name__)
@@ -8,7 +8,7 @@ app.config['SECRET_KEY'] = 'SECretKeYApEx04'
 sp = ['инженер-исследователь', 'пилот', 'строитель', 'экзобиолог', 'врач', 'инженер по терраформированию', 'климатолог',
       'специалист по радиационной защите', 'астрогеолог', 'гляциолог', 'инженер жизнеобеспечения', 'метеоролог',
       'оператор марсохода', 'киберинженер', 'штурман', 'пилот дронов']
-
+count = 0
 
 @app.route('/<title>')
 @app.route('/index/<title>')
@@ -66,6 +66,23 @@ def distribution():
 def table(sex, age):
     return render_template('table.html', sex=sex, age=age)
 
+
+@app.route('/galery', methods=['POST', 'GET'])
+def galery():
+    global count
+    if request.method == 'GET':
+        with open('pictures_for_carousel', 'r') as f:
+            al = list(map(lambda x: x.rstrip('\n'), f.readlines()))
+            print(al)
+        return render_template('galery.html', list=al)
+    elif request.method == 'POST':
+        count += 1
+        f = request.files['file']
+        with open(f'static/img/photo{count}.jpg', 'wb') as file:
+            file.write(f.read())
+        with open('pictures_for_carousel', 'a') as file:
+            file.write(f'\nphoto{count}.jpg')
+        return redirect('/galery')
 
 if __name__ == '__main__':
     app.run()

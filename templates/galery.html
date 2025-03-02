@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Server{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="/static/css/size_image_login_form.css">
+{% endblock %}
+{% block content %}
+
+<div style="text-align: center;">
+    <span><h3>Пейзажи планет</h3></span>
+    <div>
+        <form class="login_form" method="post" enctype="multipart/form-data">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{url_for('static', filename='img/tree1.jpg')}}"
+                             alt="здесь должна была быть картинка, но не нашлась">
+                    </div>
+                    {% for i in list %}
+                    <div class="carousel-item">
+                        <img src="{{url_for('static', filename='img/'~i)}}"
+                             alt="здесь должна была быть картинка, но не нашлась">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="photo">Приложите фотографию</label>
+                <input type="file" class="form-control-file" id="photo" name="file">
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -4,6 +4,8 @@ import random
 from flask import Flask, render_template, redirect, request
 from login import LoginForm
 
+with open('pictures_for_carousel', 'w') as f:
+    f.write('tree2.jpg\ntree3.jpg')
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'SECretKeYApEx04'
 sp = ['инженер-исследователь', 'пилот', 'строитель', 'экзобиолог', 'врач', 'инженер по терраформированию', 'климатолог',
